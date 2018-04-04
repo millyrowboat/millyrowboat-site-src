@@ -4,7 +4,9 @@ import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 //
+import { Layout } from 'antd'
 import { rouge as rouge, canary as canary, contentWidth as contentWidth} from './style-constants'
+const { Header, Content} = Layout;
 
 injectGlobal`
   body {
@@ -49,6 +51,7 @@ const AppStyles = styled.div`
 const App = () => (
   <Router>
     <AppStyles>
+      <Header>
       <nav>
         <div className="nav-content">
         <Link to="/">Home</Link>
@@ -56,9 +59,12 @@ const App = () => (
         <Link to="/blog">Blog</Link>
       </div>
       </nav>
+    </Header>
+    <Content>
       <div className="content">
         <Routes />
       </div>
+    </Content>
     </AppStyles>
   </Router>
 )
