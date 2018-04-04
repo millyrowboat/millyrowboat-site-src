@@ -4,6 +4,7 @@ import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
 import Routes from 'react-static-routes'
 //
+import NavBar from './containers/NavBar'
 import { Layout } from 'antd'
 import { rouge as rouge, canary as canary, contentWidth as contentWidth} from './style-constants'
 const { Header, Content} = Layout;
@@ -29,6 +30,7 @@ const AppStyles = styled.div`
     .nav-content {
     max-width: ${contentWidth}px;
     margin: 0 auto;
+    font-size: 1.2rem;
     }
     a {
       color: white;
@@ -52,13 +54,7 @@ const App = () => (
   <Router>
     <AppStyles>
       <Header>
-      <nav>
-        <div className="nav-content">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
-      </div>
-      </nav>
+        <NavBar />
     </Header>
     <Content>
       <div className="content">
