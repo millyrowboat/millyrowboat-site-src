@@ -2,13 +2,13 @@ import React from 'react'
 import { Router, Link } from 'react-static'
 import styled, { injectGlobal } from 'styled-components'
 import { hot } from 'react-hot-loader'
-import {Helmet} from "react-helmet"
 import Routes from 'react-static-routes'
+//
+import { rouge as rouge, canary as canary, contentWidth as contentWidth} from './style-constants'
 
 injectGlobal`
   body {
-    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
-      'Lucida Grande', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 300;
     font-size: 16px;
     margin: 0;
@@ -23,8 +23,11 @@ const AppStyles = styled.div`
     font-weight: bold;
   }
   nav {
-    width: 100%;
-    background: #108db8;
+    background: ${rouge};
+    .nav-content {
+    max-width: ${contentWidth}px;
+    margin: 0 auto;
+    }
     a {
       color: white;
       padding: 1rem;
@@ -33,7 +36,11 @@ const AppStyles = styled.div`
   }
   .content {
     padding: 1rem;
+    max-width:${contentWidth}px;
+    margin: 0 auto;
   }
+  .site {
+  margin: 0 auto;
   img {
     max-width: 100%;
   }
@@ -43,9 +50,11 @@ const App = () => (
   <Router>
     <AppStyles>
       <nav>
+        <div className="nav-content">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/blog">Blog</Link>
+      </div>
       </nav>
       <div className="content">
         <Routes />
